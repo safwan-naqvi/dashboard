@@ -25,7 +25,7 @@ import {
 
 import "./App.css";
 const App = () => {
-  const { activeMenu } = useStateContext();
+  const { activeMenu, themeSettings, setThemeSettings } = useStateContext();
 
   return (
     <div>
@@ -38,6 +38,7 @@ const App = () => {
                 className="text-3xl p-3 
                 hover:drop-shadow-shadow-xl 
                 hover:bg-light-bg text-white"
+                onClick={() => setThemeSettings(true)}
                 style={{ background: "blue", borderRadius: "50%" }}
               >
                 <FiSettings />
@@ -63,6 +64,7 @@ const App = () => {
               <Navbar />
             </div>
             <div>
+              {themeSettings && <ThemeSettings />}
               <Routes>
                 {/* Defining Pages Routes */}
                 <Route path="/" element={<Ecommerce />} />
@@ -76,7 +78,7 @@ const App = () => {
                 {/* Apps */}
                 <Route path="/kanban" element={<Kanban />} />
                 <Route path="/editor" element={<Editor />} />
-                <Route path="/calender" element={<Calender />} />
+                <Route path="/calendar" element={<Calender />} />
                 <Route path="/color-picker" element={<ColorPicker />} />
 
                 {/* Charts */}
