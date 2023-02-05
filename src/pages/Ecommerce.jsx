@@ -11,8 +11,9 @@ import {
 import { useStateContext } from "../contexts/ContextProvider";
 
 const Ecommerce = () => {
+  const currentColor = "black";
   return (
-    <div className="mt-12">
+    <div className="mt-24">
       <div className="flex flex-wrap lg:flex-nowrap justify-center">
         <div
           className="bg-white dark:text-gray-200
@@ -22,33 +23,37 @@ const Ecommerce = () => {
         >
           <div className="flex justify-between items-center">
             <div>
-              <p className="text-gray-400 font-bold">Earnings</p>
-              <p className="text-2xl">$72,334.78</p>
+              <p className="font-bold text-gray-400">Earnings</p>
+              <p className="text-2xl">$63,448.78</p>
             </div>
+            <button
+              type="button"
+              style={{ backgroundColor: currentColor }}
+              className="text-2xl opacity-0.9 text-white hover:drop-shadow-xl rounded-full  p-4"
+            >
+              <BsCurrencyDollar />
+            </button>
           </div>
           <div className="mt-6">
             <Button
               color="white"
-              bgColor="blue"
+              bgColor={currentColor}
               text="Download"
               borderRadius="10px"
-              size="md"
             />
           </div>
         </div>
         {/* cards */}
-        <div className="flex m-3 flex-wrap gap-1 justify-center">
+        <div className="flex m-3 flex-wrap justify-center gap-1 items-center">
           {earningData.map((item) => (
             <div
               key={item.title}
-              className="bg-white 
-              dark:text-gray-200
-              dark:bg-secondary-dark-bg md:w-56 p-4 pt-9 rounded-2xl"
+              className="bg-white h-44 dark:text-gray-200 dark:bg-secondary-dark-bg md:w-56  p-4 pt-9 rounded-2xl "
             >
               <button
                 type="button"
                 style={{ color: item.iconColor, backgroundColor: item.iconBg }}
-                className="text-2xl opacity-0.9 rounded-full p-4 hover:drop-shadow-xl"
+                className="text-2xl opacity-0.9 rounded-full  p-4 hover:drop-shadow-xl"
               >
                 {item.icon}
               </button>
@@ -58,7 +63,7 @@ const Ecommerce = () => {
                   {item.percentage}
                 </span>
               </p>
-              <p className="text-sm text-gray-400 mt-1">{item.title}</p>
+              <p className="text-sm text-gray-400  mt-1">{item.title}</p>
             </div>
           ))}
         </div>
